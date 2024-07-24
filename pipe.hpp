@@ -34,6 +34,8 @@ public:
     if (bird.gameOver) { return false; }
     if (bird.x >= x && !scored) {
       scored = true;
+      ++score;
+      std::cout << score << std::endl;
     }
     if (x + width <= 0) {
       return true;

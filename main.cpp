@@ -7,6 +7,7 @@
 #include "pipesManager.hpp"
 #include "MainScene.hpp"
 #include "DeathScene.hpp"
+#include "RetryScene.hpp"
 
 int main() {
   sf::RenderWindow window(sf::VideoMode(300, 400), "Flappy Bird");
@@ -18,10 +19,16 @@ int main() {
   if (!pipeTexture.loadFromFile("img/pipes.png")) {
     std::cerr << "Unable to load" << std::endl;
   }
+  if (!backgroundTexture.loadFromFile("img/background.png")) {
+    std::cerr << "Unable to load" << std::endl;
+  }
   birdSprite.setTexture(birdTexture);
   birdSprite.setScale(3.125f, 3.125f);
   pipeUpSprite.setTexture(pipeTexture);
   pipeDownSprite.setTexture(pipeTexture);
+  backgroundSprite.setTexture(backgroundTexture);
+  backgroundSprite.setPosition(0, 0);
+  backgroundSprite.setScale(1.171875f, 1.5625f);
 
   while (window.isOpen()) {
     sf::Event event;
@@ -35,6 +42,10 @@ int main() {
             switch (currentScene) {
               case MainGame:
                 bird.vy = flap;
+              break;
+              case Retry:
+                score = 0;
+                currentScene = MainGame;
               break;
             }
           break;
@@ -52,6 +63,7 @@ int main() {
         DeathScene(window);
       break;
       case Retry:
+        RetryScene(window);
       break;
     }
     window.display();
