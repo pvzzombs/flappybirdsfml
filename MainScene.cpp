@@ -1,5 +1,3 @@
-#pragma once
-
 #include "globals.hpp"
 
 void MainScene(sf::RenderWindow &window) {
@@ -10,6 +8,6 @@ void MainScene(sf::RenderWindow &window) {
   }
   bird.update();
   pipesManager.update();
-  bird.draw(window);
   pipesManager.draw(window);
+  bird.draw(window);
 }

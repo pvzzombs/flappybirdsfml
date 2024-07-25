@@ -1,13 +1,25 @@
-#include <iostream>
-#include <SFML/Graphics.hpp>
-
 #include "globals.hpp"
-#include "scenes.hpp"
-#include "bird.hpp"
-#include "pipesManager.hpp"
-#include "MainScene.hpp"
-#include "DeathScene.hpp"
-#include "RetryScene.hpp"
+
+// global variable definitions here
+
+GameScene currentScene = MainGame;
+
+int speed = 2;
+float gravity = 0.3f;
+float flap = -6.0f;
+
+int score = 0;
+
+Bird bird;
+PipesManager pipesManager;
+
+sf::Texture birdTexture;
+sf::Texture pipeTexture;
+sf::Texture backgroundTexture;
+sf::Sprite birdSprite;
+sf::Sprite pipeUpSprite;
+sf::Sprite pipeDownSprite;
+sf::Sprite backgroundSprite;
 
 int main() {
   sf::RenderWindow window(sf::VideoMode(300, 400), "Flappy Bird");
