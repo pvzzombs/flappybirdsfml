@@ -47,7 +47,6 @@ void Pipe::draw(sf::RenderWindow &window) {
   window.draw(rectangle1);
 
   pipeUpSprite.setPosition(x, y);
-  pipeUpSprite.setScale(1.5625f, (float)200.f / 80.f);
   pipeUpSprite.setTextureRect(sf::IntRect(0, 80 - (hPipe * 80 / 200), 32, hPipe * 80 / 200));
   window.draw(pipeUpSprite);
 
@@ -56,7 +55,6 @@ void Pipe::draw(sf::RenderWindow &window) {
   window.draw(rectangle2);
 
   pipeDownSprite.setPosition(x, height + hole);
-  pipeDownSprite.setScale(1.5625f, (float)200.f / 80.f);
   pipeDownSprite.setTextureRect(sf::IntRect(0, 0, 32, lPipe * 80 / 200));
   window.draw(pipeDownSprite);
 }

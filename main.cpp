@@ -38,6 +38,8 @@ int main() {
   birdSprite.setScale(3.125f, 3.125f);
   pipeUpSprite.setTexture(pipeTexture);
   pipeDownSprite.setTexture(pipeTexture);
+  pipeUpSprite.setScale(1.5625f, 200.f / 80.f);
+  pipeDownSprite.setScale(1.5625f, 200.f / 80.f);
   backgroundSprite.setTexture(backgroundTexture);
   backgroundSprite.setPosition(0, 0);
   backgroundSprite.setScale(1.171875f, 1.5625f);
