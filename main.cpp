@@ -26,13 +26,13 @@ int main() {
   window.setFramerateLimit(60);
 
   if (!birdTexture.loadFromFile("img/bird.png")) {
-    std::cerr << "Unable to load" << std::endl;
+    std::cerr << "Unable to load bird image." << std::endl;
   }
   if (!pipeTexture.loadFromFile("img/pipes.png")) {
-    std::cerr << "Unable to load" << std::endl;
+    std::cerr << "Unable to load pipes image." << std::endl;
   }
   if (!backgroundTexture.loadFromFile("img/background.png")) {
-    std::cerr << "Unable to load" << std::endl;
+    std::cerr << "Unable to load background image." << std::endl;
   }
   birdSprite.setTexture(birdTexture);
   birdSprite.setScale(3.125f, 3.125f);
