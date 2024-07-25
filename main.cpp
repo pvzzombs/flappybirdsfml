@@ -8,10 +8,13 @@ int speed = 2;
 float gravity = 0.3f;
 float flap = -6.0f;
 
+int fps = 60;
 int score = 0;
 
 Bird bird;
 PipesManager pipesManager;
+
+sf::Clock deltaClock;
 
 sf::Texture birdTexture;
 sf::Texture pipeTexture;
@@ -23,7 +26,8 @@ sf::Sprite backgroundSprite;
 
 int main() {
   sf::RenderWindow window(sf::VideoMode(300, 400), "Flappy Bird");
-  window.setFramerateLimit(60);
+  window.setFramerateLimit(fps);
+  window.setKeyRepeatEnabled(false);
 
   if (!birdTexture.loadFromFile("img/bird.png")) {
     std::cerr << "Unable to load bird image." << std::endl;
@@ -44,6 +48,7 @@ int main() {
   backgroundSprite.setPosition(0, 0);
   backgroundSprite.setScale(1.171875f, 1.5625f);
 
+  deltaClock.restart();
   while (window.isOpen()) {
     sf::Event event;
     while (window.pollEvent(event)) {

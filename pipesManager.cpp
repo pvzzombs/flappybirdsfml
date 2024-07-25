@@ -15,13 +15,13 @@ void PipesManager::reset() {
   }
 }
 
-void PipesManager::update() {
+void PipesManager::update(float pdt) {
   bool isOutOfBounds;
   for (int i = 0; i < length; i++) {
     if (i == 0) {
-      isOutOfBounds = pipes[i].update();
+      isOutOfBounds = pipes[i].update(pdt);
     } else {
-      pipes[i].update();
+      pipes[i].update(pdt);
     }
     if (pipes[i].collide()) {
       bird.vy = flap;

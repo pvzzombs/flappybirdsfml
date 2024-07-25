@@ -2,7 +2,9 @@
 
 void DeathScene(sf::RenderWindow &window) {
   // std::cout << 1 << std::endl;
-  bird.updateMove();
+  sf::Time dt = deltaClock.restart();
+  float pdt = dt.asSeconds() * (float)fps;
+  bird.updateMove(pdt);
   pipesManager.draw(window);
   bird.draw(window);
 

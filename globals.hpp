@@ -23,8 +23,8 @@ public:
   int tick;
   Bird();
   void reset();
-  void updateMove();
-  void update();
+  void updateMove(float pdt);
+  void update(float pdt);
   void draw(sf::RenderWindow &window);
 };
 
@@ -36,7 +36,7 @@ public:
   bool scored;
   Pipe();
   bool collide();
-  bool update();
+  bool update(float pdt);
   void draw(sf::RenderWindow &window);
 };
 
@@ -46,7 +46,7 @@ public:
   int length;
   void reset();
   PipesManager();
-  void update();
+  void update(float pdt);
   void draw(sf::RenderWindow &window);
 };
 
@@ -62,10 +62,13 @@ extern int speed;
 extern float gravity;
 extern float flap;
 
+extern int fps;
 extern int score;
 
 extern Bird bird;
 extern PipesManager pipesManager;
+
+extern sf::Clock deltaClock;
 
 extern sf::Texture birdTexture;
 extern sf::Texture pipeTexture;

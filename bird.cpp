@@ -19,15 +19,15 @@ void Bird::reset() {
   tick = 0;
 }
 
-void Bird::updateMove() {
-  vy += gravity;
-  y += vy;
+void Bird::updateMove(float pdt) {
+  vy += gravity * pdt;
+  y += vy * pdt;
   // std::cout << "Hello" << std::endl;
 }
 
-void Bird::update() {
-  vy += gravity;
-  y += vy;
+void Bird::update(float pdt) {
+  vy += gravity * pdt;
+  y += vy * pdt;
   if (gameOver) { return; }
   if (y + height >= 400) {
     vy = flap;

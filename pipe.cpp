@@ -22,7 +22,7 @@ bool Pipe::collide() {
   return up || down;
 }
 
-bool Pipe::update() {
+bool Pipe::update(float pdt) {
   if (bird.gameOver) { return false; }
   if (bird.x >= x && !scored) {
     scored = true;
@@ -32,7 +32,7 @@ bool Pipe::update() {
   if (x + width <= 0) {
     return true;
   }
-  x -= speed;
+  x -= speed * pdt;
   return false;
 }
 
