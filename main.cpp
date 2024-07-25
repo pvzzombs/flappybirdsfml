@@ -52,7 +52,7 @@ int main() {
       } else if (event.type == sf::Event::KeyPressed) {
         // std::cout << event.key.scancode << std::endl;
         switch (event.key.scancode) {
-          case 40:
+          case sf::Keyboard::Scan::Space:
             switch (currentScene) {
               case MainGame:
                 bird.vy = flap;
