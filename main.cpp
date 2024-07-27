@@ -90,7 +90,7 @@ int main() {
         }
       }
     }
-    window.clear(sf::Color::Black);
+    // window.clear(sf::Color::Black);
     switch (currentScene) {
       case MainMenu:
       break;
