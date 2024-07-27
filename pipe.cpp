@@ -45,20 +45,20 @@ void Pipe::draw(sf::RenderWindow &window) {
   hPipeSrcHeight = std::ceil(hPipeSrcHeight);
   lPipeSrcHeight = std::ceil(lPipeSrcHeight);
 
-  sf::RectangleShape rectangle1(sf::Vector2f(width, hPipe));
-  sf::RectangleShape rectangle2(sf::Vector2f(width, lPipe));
+  // sf::RectangleShape rectangle1(sf::Vector2f(width, hPipe));
+  // sf::RectangleShape rectangle2(sf::Vector2f(width, lPipe));
 
-  rectangle1.setPosition(x, y);
-  rectangle1.setFillColor(sf::Color(100, 250, 50));
-  window.draw(rectangle1);
+  // rectangle1.setPosition(x, y);
+  // rectangle1.setFillColor(sf::Color(100, 250, 50));
+  // window.draw(rectangle1);
 
   pipeUpSprite.setPosition(x, y);
   pipeUpSprite.setTextureRect(sf::IntRect(0, PIPE_SOURCE_HEIGHT - hPipeSrcHeight, 32, hPipeSrcHeight));
   window.draw(pipeUpSprite);
 
-  rectangle2.setPosition(x, height + hole);
-  rectangle2.setFillColor(sf::Color(100, 250, 50));
-  window.draw(rectangle2);
+  // rectangle2.setPosition(x, height + hole);
+  // rectangle2.setFillColor(sf::Color(100, 250, 50));
+  // window.draw(rectangle2);
 
   pipeDownSprite.setPosition(x, height + hole);
   pipeDownSprite.setTextureRect(sf::IntRect(0, 0, 32, lPipeSrcHeight));

@@ -44,10 +44,10 @@ void Bird::update(float pdt) {
 }
 
 void Bird::draw(sf::RenderWindow &window) {
-  sf::RectangleShape rectangle1(sf::Vector2f(width, height));
-  rectangle1.setPosition(x, y);
-  rectangle1.setFillColor(sf::Color(255, 0, 0));
-  window.draw(rectangle1);
+  // sf::RectangleShape rectangle1(sf::Vector2f(width, height));
+  // rectangle1.setPosition(x, y);
+  // rectangle1.setFillColor(sf::Color(255, 0, 0));
+  // window.draw(rectangle1);
 
   birdSprite.setTextureRect(sf::IntRect(currentFrame * 16, 0, 16, 16));
   birdSprite.setPosition(x, y);

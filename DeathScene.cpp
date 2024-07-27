@@ -5,11 +5,13 @@ void DeathScene(sf::RenderWindow &window) {
   sf::Time dt = deltaClock.restart();
   float pdt = dt.asSeconds() * (float)fps;
   bird.updateMove(pdt);
-  pipesManager.draw(window);
-  bird.draw(window);
 
   if (bird.y >= SCREEN_HEIGHT) {
     currentScene = Retry;
     return;
   }
+
+  window.draw(backgroundSprite);
+  pipesManager.draw(window);
+  bird.draw(window);
 }
