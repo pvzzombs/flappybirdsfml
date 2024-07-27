@@ -24,20 +24,33 @@ sf::Sprite pipeUpSprite;
 sf::Sprite pipeDownSprite;
 sf::Sprite backgroundSprite;
 
+sf::Font font;
+sf::Text text;
+
 int main() {
   sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Flappy Bird");
   window.setFramerateLimit(fps);
   window.setKeyRepeatEnabled(false);
 
-  if (!birdTexture.loadFromFile("img/bird.png")) {
+  if (!birdTexture.loadFromFile("resources/img/bird.png")) {
     std::cerr << "Unable to load bird image." << std::endl;
+    return 1;
   }
-  if (!pipeTexture.loadFromFile("img/pipes.png")) {
+  if (!pipeTexture.loadFromFile("resources/img/pipes.png")) {
     std::cerr << "Unable to load pipes image." << std::endl;
+    return 1;
   }
-  if (!backgroundTexture.loadFromFile("img/background.png")) {
+  if (!backgroundTexture.loadFromFile("resources/img/background.png")) {
     std::cerr << "Unable to load background image." << std::endl;
+    return 1;
   }
+
+  // load font
+  if (!font.loadFromFile("resources/font/ComicMono.ttf")) {
+    std::cerr << "Unable to load font." << std::endl;
+    return 1;
+  }
+
   birdSprite.setTexture(birdTexture);
   birdSprite.setScale(3.125f, 3.125f);
   pipeUpSprite.setTexture(pipeTexture);
@@ -47,6 +60,12 @@ int main() {
   backgroundSprite.setTexture(backgroundTexture);
   backgroundSprite.setPosition(0, 0);
   backgroundSprite.setScale((float)SCREEN_WIDTH / 256.0f, (float)SCREEN_HEIGHT / 256.0f);
+
+  text.setFont(font);
+  text.setCharacterSize(20);
+  text.setFillColor(sf::Color::Black);
+  // text.setOutlineColor(sf::Color::Black);
+  text.setPosition(0, 0);
 
   deltaClock.restart();
   while (window.isOpen()) {

@@ -85,3 +85,6 @@ extern sf::Sprite birdSprite;
 extern sf::Sprite pipeUpSprite;
 extern sf::Sprite pipeDownSprite;
 extern sf::Sprite backgroundSprite;
+
+extern sf::Font font;
+extern sf::Text text;

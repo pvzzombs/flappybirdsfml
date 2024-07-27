@@ -1,3 +1,4 @@
+#include <string>
 #include "globals.hpp"
 
 void MainScene(sf::RenderWindow &window) {
@@ -13,4 +14,7 @@ void MainScene(sf::RenderWindow &window) {
   pipesManager.update(pdt);
   pipesManager.draw(window);
   bird.draw(window);
+  text.setString("Score: " + std::to_string(score));
+  // text.setOutlineThickness(2);
+  window.draw(text);
 }
