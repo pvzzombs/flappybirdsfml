@@ -28,7 +28,7 @@ bool Pipe::update(float pdt) {
   if (bird.x >= x && !scored) {
     scored = true;
     ++score;
-    std::cout << score << ", " << height << std::endl;
+    // std::cout << score << ", " << height << std::endl;
   }
   if (x + width <= 0) {
     return true;
