@@ -4,6 +4,13 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
+#define SCREEN_WIDTH 300
+#define SCREEN_HEIGHT 400
+#define MIN_PIPE_HEIGHT 50
+#define PIPE_HOLE_HEIGHT 150
+#define MAX_PIPE_HEIGHT (SCREEN_HEIGHT - MIN_PIPE_HEIGHT - PIPE_HOLE_HEIGHT)
+#define PIPE_SOURCE_HEIGHT 160.0f
+
 enum GameScene {
   MainMenu,
   MainGame,
@@ -38,6 +45,7 @@ public:
   bool collide();
   bool update(float pdt);
   void draw(sf::RenderWindow &window);
+  void randomizeHeight();
 };
 
 class PipesManager {

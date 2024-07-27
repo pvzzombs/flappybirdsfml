@@ -29,7 +29,7 @@ void Bird::update(float pdt) {
   vy += gravity * pdt;
   y += vy * pdt;
   if (gameOver) { return; }
-  if (y + height >= 400) {
+  if (y + height >= SCREEN_HEIGHT) {
     vy = flap;
     currentScene = Death;
     gameOver = true;

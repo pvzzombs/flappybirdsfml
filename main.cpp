@@ -25,7 +25,7 @@ sf::Sprite pipeDownSprite;
 sf::Sprite backgroundSprite;
 
 int main() {
-  sf::RenderWindow window(sf::VideoMode(300, 400), "Flappy Bird");
+  sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Flappy Bird");
   window.setFramerateLimit(fps);
   window.setKeyRepeatEnabled(false);
 
@@ -42,11 +42,11 @@ int main() {
   birdSprite.setScale(3.125f, 3.125f);
   pipeUpSprite.setTexture(pipeTexture);
   pipeDownSprite.setTexture(pipeTexture);
-  pipeUpSprite.setScale(1.5625f, 200.f / 80.f);
-  pipeDownSprite.setScale(1.5625f, 200.f / 80.f);
+  pipeUpSprite.setScale(1.5625f, (float)MAX_PIPE_HEIGHT / PIPE_SOURCE_HEIGHT);
+  pipeDownSprite.setScale(1.5625f, (float)MAX_PIPE_HEIGHT / PIPE_SOURCE_HEIGHT);
   backgroundSprite.setTexture(backgroundTexture);
   backgroundSprite.setPosition(0, 0);
-  backgroundSprite.setScale(1.171875f, 1.5625f);
+  backgroundSprite.setScale((float)SCREEN_WIDTH / 256.0f, (float)SCREEN_HEIGHT / 256.0f);
 
   deltaClock.restart();
   while (window.isOpen()) {

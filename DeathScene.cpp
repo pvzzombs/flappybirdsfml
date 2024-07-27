@@ -8,7 +8,7 @@ void DeathScene(sf::RenderWindow &window) {
   pipesManager.draw(window);
   bird.draw(window);
 
-  if (bird.y >= 400) {
+  if (bird.y >= SCREEN_HEIGHT) {
     currentScene = Retry;
     return;
   }

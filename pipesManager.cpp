@@ -31,9 +31,6 @@ void PipesManager::update(float pdt) {
     }
   }
   float lastPipeX = pipes[length - 1].x;
-  std::random_device dev;
-  std::mt19937 rng(dev());
-  std::uniform_int_distribution<std::mt19937::result_type> dist(50, 200);
 
   if (isOutOfBounds) {
     Pipe temp = pipes[0];
@@ -43,7 +40,7 @@ void PipesManager::update(float pdt) {
     pipes[length - 1] = temp;
 
     pipes[length - 1].x = lastPipeX + 200;
-    pipes[length - 1].height = dist(rng);
+    pipes[length - 1].randomizeHeight();
     pipes[length - 1].scored = false;
   }
 }
