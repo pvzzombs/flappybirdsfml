@@ -40,6 +40,11 @@ bool Pipe::update(float pdt) {
 void Pipe::draw(sf::RenderWindow &window) {
   int hPipe = height;
   int lPipe = SCREEN_HEIGHT - height - hole;
+  float hPipeSrcHeight = (float)hPipe * PIPE_SOURCE_HEIGHT / (float)MAX_PIPE_HEIGHT;
+  float lPipeSrcHeight = (float)lPipe * PIPE_SOURCE_HEIGHT / (float)MAX_PIPE_HEIGHT;
+  hPipeSrcHeight = std::ceil(hPipeSrcHeight);
+  lPipeSrcHeight = std::ceil(lPipeSrcHeight);
+
   sf::RectangleShape rectangle1(sf::Vector2f(width, hPipe));
   sf::RectangleShape rectangle2(sf::Vector2f(width, lPipe));
 
@@ -48,7 +53,7 @@ void Pipe::draw(sf::RenderWindow &window) {
   window.draw(rectangle1);
 
   pipeUpSprite.setPosition(x, y);
-  pipeUpSprite.setTextureRect(sf::IntRect(0, PIPE_SOURCE_HEIGHT - (hPipe * PIPE_SOURCE_HEIGHT / MAX_PIPE_HEIGHT), 32, std::ceil(hPipe * PIPE_SOURCE_HEIGHT / MAX_PIPE_HEIGHT)));
+  pipeUpSprite.setTextureRect(sf::IntRect(0, PIPE_SOURCE_HEIGHT - hPipeSrcHeight, 32, hPipeSrcHeight));
   window.draw(pipeUpSprite);
 
   rectangle2.setPosition(x, height + hole);
@@ -56,7 +61,7 @@ void Pipe::draw(sf::RenderWindow &window) {
   window.draw(rectangle2);
 
   pipeDownSprite.setPosition(x, height + hole);
-  pipeDownSprite.setTextureRect(sf::IntRect(0, 0, 32, lPipe * PIPE_SOURCE_HEIGHT / MAX_PIPE_HEIGHT));
+  pipeDownSprite.setTextureRect(sf::IntRect(0, 0, 32, lPipeSrcHeight));
   window.draw(pipeDownSprite);
 }
 
