@@ -90,6 +90,20 @@ int main() {
             }
           break;
         }
+      } else if (event.type == sf::Event::MouseButtonPressed) {
+        if (event.mouseButton.button == sf::Mouse::Left) {
+          switch (currentScene) {
+            case MainGame:
+              bird.vy = flap;
+            break;
+            case Retry:
+              score = 0;
+              bird.reset();
+              pipesManager.reset();
+              currentScene = MainGame;
+            break;
+          }
+        }
       }
     }
     // window.clear(sf::Color::Black);
