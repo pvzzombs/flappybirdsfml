@@ -8,7 +8,7 @@ void DeathScene(sf::RenderWindow &window) {
 
   if (bird.y >= SCREEN_HEIGHT) {
     currentScene = Retry;
-    return;
+    // return;
   }
 
   window.draw(backgroundSprite);

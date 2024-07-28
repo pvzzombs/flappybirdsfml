@@ -83,6 +83,8 @@ int main() {
               break;
               case Retry:
                 score = 0;
+                bird.reset();
+                pipesManager.reset();
                 currentScene = MainGame;
               break;
             }
