@@ -64,17 +64,13 @@ void Bird::draw(sf::RenderWindow &window) {
   // center.setPosition(x + width / 2, y + height / 2);
   // center.setFillColor(sf::Color::Black);
 
+  birdSprite.setTextureRect(sf::IntRect(currentFrame * BIRD_SOURCE_WIDTH, 0, BIRD_SOURCE_WIDTH, BIRD_SOURCE_HEIGHT));
   birdSprite.setOrigin((float)BIRD_SOURCE_WIDTH / 2, (float)BIRD_SOURCE_HEIGHT / 2);
-  // birdSprite.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
   birdSprite.setRotation(angle);
   if (angle < 45.0f && vy >= 0.0f) {
     angle += 3.0f;
   }
-  // birdSprite.setOrigin(0, 0);
-
-  birdSprite.setTextureRect(sf::IntRect(currentFrame * BIRD_SOURCE_WIDTH, 0, BIRD_SOURCE_WIDTH, BIRD_SOURCE_HEIGHT));
-  birdSprite.setPosition(x + BIRD_WIDTH / 2, y + BIRD_HEIGHT / 2);
-  // birdSprite.setPosition(x, y);
+  birdSprite.setPosition(x + (float)BIRD_WIDTH / 2, y + (float)BIRD_HEIGHT / 2);
   window.draw(birdSprite);
   // window.draw(center);
   ++tick;
