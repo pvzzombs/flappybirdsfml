@@ -11,6 +11,11 @@
 #define MAX_PIPE_HEIGHT (SCREEN_HEIGHT - MIN_PIPE_HEIGHT - PIPE_HOLE_HEIGHT)
 #define PIPE_SOURCE_HEIGHT 160.0f
 
+#define BIRD_WIDTH 50
+#define BIRD_HEIGHT 50
+#define BIRD_SOURCE_WIDTH 16.0f
+#define BIRD_SOURCE_HEIGHT 16.0f
+
 enum GameScene {
   MainMenu,
   MainGame,
@@ -28,6 +33,7 @@ public:
   bool gameOver;
   int frameDelay;
   int tick;
+  float angle;
   Bird();
   void reset();
   void updateMove(float pdt);

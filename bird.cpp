@@ -11,12 +11,14 @@ void Bird::reset() {
   y = 5;
   vx = 0;
   vy = 0;
-  width = 50;
-  height = 50;
+  width = BIRD_WIDTH;
+  height = BIRD_HEIGHT;
   gameOver = false;
 
   currentFrame = 0;
   tick = 0;
+
+  angle = 0.0f;
 }
 
 void Bird::updateMove(float pdt) {
@@ -31,12 +33,14 @@ void Bird::update(float pdt) {
   if (gameOver) { return; }
   if (y + height >= SCREEN_HEIGHT) {
     vy = flap;
+    // angle = 45.0f;
     currentScene = Death;
     gameOver = true;
     return;
   }
   if (y + height <= 0) {
     vy = flap;
+    // angle = 45.0f;
     currentScene = Death;
     gameOver = true;
     return;
@@ -44,14 +48,35 @@ void Bird::update(float pdt) {
 }
 
 void Bird::draw(sf::RenderWindow &window) {
-  // sf::RectangleShape rectangle1(sf::Vector2f(width, height));
-  // rectangle1.setPosition(x, y);
+  // sf::FloatRect birdBoundingBox = birdSprite.getGlobalBounds();
+  // sf::RectangleShape rectangle1(birdBoundingBox.getSize());
+  // rectangle1.setPosition(birdBoundingBox.getPosition());
   // rectangle1.setFillColor(sf::Color(255, 0, 0));
   // window.draw(rectangle1);
 
-  birdSprite.setTextureRect(sf::IntRect(currentFrame * 16, 0, 16, 16));
-  birdSprite.setPosition(x, y);
+  // sf::FloatRect birdBoundingBox2(sf::Vector2f(x, y), sf::Vector2f(width, height));
+  // sf::RectangleShape rectangle2(birdBoundingBox2.getSize());
+  // rectangle2.setPosition(birdBoundingBox2.getPosition());
+  // rectangle2.setFillColor(sf::Color(0, 255, 0));
+  // window.draw(rectangle2);
+
+  // sf::RectangleShape center(sf::Vector2f(1.0f, 1.0f));
+  // center.setPosition(x + width / 2, y + height / 2);
+  // center.setFillColor(sf::Color::Black);
+
+  birdSprite.setOrigin((float)BIRD_SOURCE_WIDTH / 2, (float)BIRD_SOURCE_HEIGHT / 2);
+  // birdSprite.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+  birdSprite.setRotation(angle);
+  if (angle < 45.0f && vy >= 0.0f) {
+    angle += 3.0f;
+  }
+  // birdSprite.setOrigin(0, 0);
+
+  birdSprite.setTextureRect(sf::IntRect(currentFrame * BIRD_SOURCE_WIDTH, 0, BIRD_SOURCE_WIDTH, BIRD_SOURCE_HEIGHT));
+  birdSprite.setPosition(x + BIRD_WIDTH / 2, y + BIRD_HEIGHT / 2);
+  // birdSprite.setPosition(x, y);
   window.draw(birdSprite);
+  // window.draw(center);
   ++tick;
   if (tick == frameDelay) {
     tick = 0;

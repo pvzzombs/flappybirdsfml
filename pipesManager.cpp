@@ -25,6 +25,7 @@ void PipesManager::update(float pdt) {
     }
     if (pipes[i].collide()) {
       bird.vy = flap;
+      // bird.angle = 45.0f;
       currentScene = Death;
       bird.gameOver = true;
       return;

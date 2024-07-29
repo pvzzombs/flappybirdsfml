@@ -16,9 +16,18 @@ Pipe::Pipe() {
 }
 
 bool Pipe::collide() {
-  bool up = collided(bird.x, bird.y, bird.width, bird.height,
+  // sf::FloatRect birdBoundingBox = birdSprite.getGlobalBounds();
+  // float bx = birdBoundingBox.getPosition().x;
+  // float by = birdBoundingBox.getPosition().y;
+  // float bWidth = birdBoundingBox.getSize().x;
+  // float bHeight = birdBoundingBox.getSize().y;
+  float bx = bird.x;
+  float by = bird.y;
+  float bWidth = bird.width;
+  float bHeight = bird.height;
+  bool up = collided(bx, by, bWidth, bHeight,
                     x, y, width, height);
-  bool down = collided(bird.x, bird.y, bird.width, bird.height,
+  bool down = collided(bx, by, bWidth, bHeight,
                       x, height + hole, width, SCREEN_HEIGHT - height - hole);
   return up || down;
 }

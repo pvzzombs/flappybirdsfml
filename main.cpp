@@ -52,7 +52,7 @@ int main() {
   }
 
   birdSprite.setTexture(birdTexture);
-  birdSprite.setScale(3.125f, 3.125f);
+  birdSprite.setScale((float)BIRD_WIDTH / BIRD_SOURCE_WIDTH, (float)BIRD_HEIGHT / BIRD_SOURCE_HEIGHT);
   pipeUpSprite.setTexture(pipeTexture);
   pipeDownSprite.setTexture(pipeTexture);
   pipeUpSprite.setScale(1.5625f, (float)MAX_PIPE_HEIGHT / PIPE_SOURCE_HEIGHT);
@@ -80,6 +80,7 @@ int main() {
             switch (currentScene) {
               case MainGame:
                 bird.vy = flap;
+                bird.angle = -30.0f;
               break;
               case Retry:
                 score = 0;
@@ -95,6 +96,7 @@ int main() {
           switch (currentScene) {
             case MainGame:
               bird.vy = flap;
+              bird.angle = -30.0f;
             break;
             case Retry:
               score = 0;
