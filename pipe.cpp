@@ -9,7 +9,7 @@ Pipe::Pipe() {
   
   x = 0;
   y = 0;
-  width = 50;
+  width = PIPE_WIDTH;
   height = dist(rng);
   hole = PIPE_HOLE_HEIGHT;
   scored = false;

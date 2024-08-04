@@ -55,8 +55,8 @@ int main() {
   birdSprite.setScale((float)BIRD_WIDTH / BIRD_SOURCE_WIDTH, (float)BIRD_HEIGHT / BIRD_SOURCE_HEIGHT);
   pipeUpSprite.setTexture(pipeTexture);
   pipeDownSprite.setTexture(pipeTexture);
-  pipeUpSprite.setScale(1.5625f, (float)MAX_PIPE_HEIGHT / PIPE_SOURCE_HEIGHT);
-  pipeDownSprite.setScale(1.5625f, (float)MAX_PIPE_HEIGHT / PIPE_SOURCE_HEIGHT);
+  pipeUpSprite.setScale((float)PIPE_WIDTH / PIPE_SOURCE_WIDTH, (float)MAX_PIPE_HEIGHT / PIPE_SOURCE_HEIGHT);
+  pipeDownSprite.setScale((float)PIPE_WIDTH / PIPE_SOURCE_WIDTH, (float)MAX_PIPE_HEIGHT / PIPE_SOURCE_HEIGHT);
   backgroundSprite.setTexture(backgroundTexture);
   backgroundSprite.setPosition(0, 0);
   backgroundSprite.setScale((float)SCREEN_WIDTH / 256.0f, (float)SCREEN_HEIGHT / 256.0f);
