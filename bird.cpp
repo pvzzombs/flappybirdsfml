@@ -67,8 +67,8 @@ void Bird::draw(sf::RenderWindow &window) {
   birdSprite.setTextureRect(sf::IntRect(currentFrame * BIRD_SOURCE_WIDTH, 0, BIRD_SOURCE_WIDTH, BIRD_SOURCE_HEIGHT));
   birdSprite.setOrigin((float)BIRD_SOURCE_WIDTH / 2, (float)BIRD_SOURCE_HEIGHT / 2);
   birdSprite.setRotation(angle);
-  if (angle < 45.0f && vy >= 0.0f) {
-    angle += 3.0f;
+  if (angle < 90.0f && vy >= 0.0f) {
+    angle += 4.5f;
   }
   birdSprite.setPosition(x + (float)BIRD_WIDTH / 2, y + (float)BIRD_HEIGHT / 2);
   window.draw(birdSprite);

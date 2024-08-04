@@ -80,7 +80,7 @@ int main() {
             switch (currentScene) {
               case MainGame:
                 bird.vy = flap;
-                bird.angle = -30.0f;
+                bird.angle = -20.0f;
               break;
               case Retry:
                 score = 0;
@@ -96,7 +96,7 @@ int main() {
           switch (currentScene) {
             case MainGame:
               bird.vy = flap;
-              bird.angle = -30.0f;
+              bird.angle = -20.0f;
             break;
             case Retry:
               score = 0;
